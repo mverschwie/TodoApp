@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.NoSuchElementException;
 
 
+
 @RestController
 @RequestMapping("/todo")
 
@@ -15,11 +16,14 @@ public class TodoEndpoint {
     @Autowired
     TodoService todoService;
 
+    @CrossOrigin
     @PostMapping("/nieuwe-todo")
     public Todo nieuwLeerdoel(@RequestBody Todo todo) {
         return todoService.nieuweTodo(todo);
     }
 
+
+    @CrossOrigin
     @GetMapping("/all")
     public Iterable<Todo> haalAlleTodos() {
         return todoService.haalAlleTodos();

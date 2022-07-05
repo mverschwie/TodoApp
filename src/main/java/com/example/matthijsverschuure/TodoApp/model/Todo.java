@@ -2,6 +2,7 @@ package com.example.matthijsverschuure.TodoApp.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Todo {
@@ -14,7 +15,7 @@ public class Todo {
 
     private boolean isAfgerond;
 
-    private LocalDate datumToegevoegd;
+    private LocalDateTime datumToegevoegd;
 
     private LocalDate datumAfgerond;
 
@@ -35,11 +36,11 @@ public class Todo {
         isAfgerond = afgerond;
     }
 
-    public LocalDate getDatumToegevoegd() {
+    public LocalDateTime getDatumToegevoegd() {
         return datumToegevoegd;
     }
 
-    public void setDatumToegevoegd(LocalDate datumToegevoegd) {
+    public void setDatumToegevoegd(LocalDateTime datumToegevoegd) {
         this.datumToegevoegd = datumToegevoegd;
     }
 

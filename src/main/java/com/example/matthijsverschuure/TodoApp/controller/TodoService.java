@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Service
 public class TodoService {
@@ -13,7 +15,7 @@ public class TodoService {
     TodoRepository todoRepository;
 
     public Todo nieuweTodo(Todo todo) {
-        todo.setDatumToegevoegd(LocalDate.now());
+        todo.setDatumToegevoegd(LocalDateTime.now());
         return todoRepository.save(todo);
 
     }
@@ -43,6 +45,7 @@ public class TodoService {
     public Todo todoNietAfgerond(long id) {
         Todo t = todoRepository.findById(id).get();
         t.setAfgerond(false);
+        t.setDatumAfgerond(null);
         return todoRepository.save(t);
     }
 
